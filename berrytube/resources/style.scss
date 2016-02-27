@@ -1,0 +1,180 @@
+/* MOBILE BASE */
+html
+{
+    overflow-x: hidden;
+}
+
+body
+{
+    min-width: 0;
+}
+
+#banner,
+.wrapper
+{
+    overflow: hidden;
+
+    max-width: 100%;
+}
+
+.dashboard
+{
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    margin-bottom: 2rem;
+
+    align-items: stretch;
+
+    .panel
+    {
+      &.player
+      {
+        //???
+
+      }
+      &.chat
+      {
+        width: 100%;
+
+        flex-grow: 2;
+      }
+    }
+}
+
+.player
+{
+  .player-container
+  {
+    width: 100%;
+  }
+  .video
+  {
+    iframe
+    {
+      position: absolute !important;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+    }
+    .wrap
+    {
+      position: relative;
+
+      width: auto;
+      max-width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 */
+    }
+  }
+}
+
+.wrapper
+{
+  #rightpane,
+  #leftpane
+  {
+      float: none;
+
+      width: 100%;
+  }
+}
+
+/* CHAT PANE BASE */
+#chatpane,
+.chat_top,
+.chat_mid,
+.chat_low
+{
+    position: relative;
+
+    display: flex;
+}
+
+#chatpane
+{
+    height: 0;
+
+    flex-flow: column nowrap;
+}
+
+.chat_mid
+{
+    height: 0;
+
+    flex-grow: 1;
+}
+
+.chat_top #chatControls,
+.chat_top #connectedCountWrapper,
+.chat_mid #chatbuffer,
+.chat_mid #adminbuffer,
+.chat_mid #chatlist,
+.chat_low #setNick,
+.chat_low #chatinput
+{
+    position: static;
+}
+
+.chat_top #chatControls
+{
+    flex-grow: 1;
+}
+
+.chat_mid
+{
+  #chatbuffer,
+  #adminbuffer,
+  #chatlist
+  {
+      height: auto;
+  }
+
+  #chatbuffer
+  {
+      width: 0;
+
+      flex-grow: 2;
+  }
+}
+
+@media (min-aspect-ratio: 17/12)
+{
+    .dashboard
+    {
+        flex-direction: row;
+        .videopane
+        {
+            flex-grow: 2;
+        }
+        #chatpane
+        {
+            width: 300px;
+            height: auto;
+
+            flex-grow: 0;
+        }
+    }
+    .videopane #drinkWrap
+    {
+        display: block !important;
+    }
+    .chat_top
+    {
+        flex-wrap: wrap;
+
+        #connectedCountWrapper
+        {
+            flex-grow: 1;
+        }
+    }
+    .chat_mid #chatlist
+    {
+        position: absolute;
+    }
+}
